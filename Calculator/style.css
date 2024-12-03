@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+
+}
+body{
+    width: 100%;
+    height: 100vh;
+
+}
+header{
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    
+}
+header h1{
+    font-family: cursive;
+    color: antiquewhite;
+    text-align: center;
+   padding: 5px;
+}
+header hr{
+    border: none;             /* Removes default border */
+  border-top: 2px solid #717377;
+}
+body::before{
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/2233.png');
+  background-size: cover;
+  background-position: center;
+  opacity:0.9; /* Adjust the opacity */
+  z-index: -1; /* Send it behind the content */
+}
+main{
+    position: absolute;
+    margin: auto;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+}
+.calculator{
+    
+    border: 1px solid #717377;
+    padding: 20px;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(50px);
+    box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+    
+}
+
+input{
+    width: 320px;
+    border: none;
+    padding: 24px;
+    margin: 10px;
+    background: transparent;
+    box-shadow: 0px 3px 15px rgba(84, 84, 84, 0.1);
+    font-size: 40px;
+    text-align: right;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #686262;
+}
+input::placeholder{
+    color: #fff;
+}
+button{
+    border: none;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+.equalbtn{
+    background-color: #fb7c14;
+}
+.operator{
+    color: #6dee0a;
+}
+.operator1{
+    color: #fb7c14;
+}
+.operator2{
+    color: #fb7c14;
+}
+.active {
+    background-color: #fb7c14;
+     /* Change to your desired active color */
+}
+footer{
+    text-align: center;
+    margin-top: 64px;
+    color: #3d3c3c;
+    font-size: 1.13rem;
+}
+
+
+
+/* Tablet Devices (Max-width: 768px) */
+@media (max-width: 768px) {
+    input {
+        width: 300px;  /* Slightly smaller input width */
+        font-size: 34px;
+    }
+
+    button {
+        width: 55px;
+        height: 55px;
+        font-size: 18px;
+    }
+}
+
+/* Mobile Devices (Max-width: 480px) */
+@media (max-width: 480px) {
+    input {
+        width: 260px;
+        font-size: 30px;
+    }
+
+    button {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+/* Small Mobile Devices (Max-width: 340px) */
+@media (max-width: 340px) {
+    input {
+        width: 250px;  /* Compact input for narrow screens */
+        font-size: 24px;
+    }
+
+    button {
+        width: 45px;   /* Adjust button size */
+        /* height: 45px; */
+        font-size: 14px;
+    }
+
+    .calculator {
+        padding: 15px;
+        margin: 10px; /* Adjust padding */
+    }
+
+    .footer-text {
+        font-size: 0.7rem;
+    }
+}
