@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Melodix Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <style>
+        html,body{
+    height: 100vh;
+    width: 100%;
+    background-image: url("img/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#containerDiv #loginDiv{
+    height: 330px;
+}
+    </style>
+    <script src="login.js" defer></script>
+</head>
+<body>
+   <form method = "post">
+    <div id="containerDiv">
+        <div id="loginDiv">
+
+              <h1>Login</h1>
+
+              <div id="inputDiv">
+                    <input type="text"  placeholder="Username" id="username">
+                    <p id="email">email: user.aftab@gmail.com</p>
+                    <input type="password" placeholder="Password" id="password">
+                    <p id="pass">password: Aftab@1234</p>
+              </div>
+
+
+              <button type="button" class="submit-btn" id="loginBtn">Login </button>
+              <div id="noAccount">
+                 <p>Don't have an account! </p>
+              </div>
+
+        </div>
+               <!-- <h3>Incorrect Password</h3> -->
+      </div>
+</form>
+</body>
+</html>
