@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aftab Asif</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/Vector 2 (2).png">
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="loader.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+  <!-- Demo styles -->
+  <style>
+    .swiper {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper .swiper-slide {
+      overflow: visible;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #1788ae;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: #23b9eb;
+    }
+  </style>
+
+ <style>
+    body {
+      background-color: #1C1D25 !important;
+    }
+
+
+
+    #page-wrap {
+      opacity: 0;
+    }
+
+    .loaded #page-wrap {
+      opacity: 1;
+    }
+
+    @-webkit-keyframes stripe {
+      0% {
+        left: 0;
+        width: 0px;
+      }
+
+      25% {
+        left: 0;
+        width: 100%;
+      }
+
+      50% {
+        left: 100%;
+        width: 0px;
+      }
+
+      75% {
+        left: 0;
+        width: 100%;
+      }
+
+      100% {
+        left: 0;
+        width: 0px;
+      }
+    }
+
+    @keyframes stripe {
+      0% {
+        left: 0;
+        width: 0px;
+      }
+
+      25% {
+        left: 0;
+        width: 100%;
+      }
+
+      50% {
+        left: 100%;
+        width: 0px;
+      }
+
+      75% {
+        left: 0;
+        width: 100%;
+      }
+
+      100% {
+        left: 0;
+        width: 0px;
+      }
+    }
+
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #252a60;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.7s, visibility 0.7s, z-index 0.7s;
+      z-index: 61
+    }
+
+    #loader.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      z-index: -1
+    }
+
+    .no-js #loader {
+      display: none
+    }
+
+    .loader-content {
+      position: absolute;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 90px;
+      overflow: hidden;
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.25s ease;
+      z-index: 70
+    }
+
+    .loader-content.is-hidden {
+      opacity: 0;
+      visibility: hidden
+    }
+
+    .loader-content>* {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0
+    }
+
+    .stripe-loader {
+      width: 100%;
+      height: 90px
+    }
+
+    .stripe {
+      height: 30px;
+      width: 0;
+      background: #ffffff;
+      position: relative;
+      margin: 0
+    }
+
+    .stripe:first-child {
+      -webkit-animation: stripe 1.5s cubic-bezier(0.694, 0.048, 0.335, 1) infinite;
+      animation: stripe 1.5s cubic-bezier(0.694, 0.048, 0.335, 1) infinite
+    }
+
+    .stripe:nth-child(2) {
+      -webkit-animation: stripe 1.5s cubic-bezier(0.694, 0.048, 0.335, 1) 0.1s infinite;
+      animation: stripe 1.5s cubic-bezier(0.694, 0.048, 0.335, 1) 0.1s infinite
+    }
+
+    .stripe:nth-child(3) {
+      -webkit-animation: stripe 1.5s cubic-bezier(0.694, 0.048, 0.335, 1) 0.2s infinite;
+      animation: stripe 1.5s cubic-bezier(0.694, 0.048, 0.335, 1) 0.2s infinite
+    }
+
+    #loader-after {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: #1c1d25;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.7s, visibility 0.7s, z-index 0.7s;
+      z-index: 62
+    }
+
+    #loader-after.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      z-index: -1
+    }
+  </style>
+</head>
+
+<body class="bg-[#1C1D25]">
+  <div id="loader">
+    <div class="loader-content">
+      <div class="stripe-loader">
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+      </div>
+    </div>
+  </div>
+  <div id="loader-after"></div>
+  <div id="page-transition">
+    <div class="page-transition-content">
+      <div class="stripe-loader">
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+      </div>
+    </div>
+  </div>
+  <div id="page-transition-after"></div>
+  <section class="flex flex-col justify-between h-screen bg-slate-900 text-white font-['Nunito'] " id="main-hero">
+
+    <header class=" flex items-center justify-between w-full px-6 mt-4 max-w-screen-xl mx-auto">
+      <svg class="cursor-pointer w-10 md:w-16" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16.3161 46.8604L40.9301 3L55.8033 34.4238L47.7383 38.4785L40.9301 20.7691L21.7436 58.2749L58.0124 40.0288L72 73H59.374C50.9567 38.717 16.3161 73 16.3161 73H2L16.3161 46.8604Z"
+          stroke="white" stroke-width="2" />
+      </svg>
+
+      <div class="flex items-center gap-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="feather feather-sun">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="whatsapp"
+          class="svg-inline--fa fa-whatsapp fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" width="24"
+          height="24" viewBox="0 0 448 512">
+          <path fill="white"
+            d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
+          </path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+          </path>
+        </svg>
+      </div>
+    </header>
+    <div id="shapes-mask">
+      <!-- triangle-->
+      <svg xmlns="http://www.w3.org/2000/svg" width="37.196" height="32.213" viewbox="0 0 37.196 32.213">
+        <symbol id="triangle">
+        <svg>xmlns="http://www.w3.org/2000/svg" width="25.675" height="22.236" viewbox="0 0 25.675 22.236">
+            <path fill="none" stroke="#CF4981" stroke-width="3" stroke-miterlimit="10"
+              d="M12.837 3l5.12 8.868 5.12 8.868H2.597l5.12-8.868z">
+            </path>
+          </svg>
+        </symbol>
+      </svg>
+      <!-- semi circle-->
+      <svg xmlns="http://www.w3.org/2000/svg" width="29.093" height="14.546" viewbox="0 0 29.093 14.546">
+        <symbol id="semiCircle">
+          <path fill="none" stroke="#CF4981" stroke-width="3" stroke-miterlimit="10"
+            d="M1.5 14.546C1.5 7.34 7.34 1.5 14.547 1.5c7.205 0 13.046 5.84 13.046 13.046"></path>
+        </symbol>
+      </svg>
+      <!-- spring-->
+      <svg xmlns="http://www.w3.org/2000/svg" width="17.046" height="36.016" viewbox="0 0 17.046 36.016">
+        <symbol id="spring">
+          <path fill="none" stroke="#CF4981" stroke-width="3" stroke-miterlimit="10"
+            d="M9.945 34.614S1.46 31.38 1.5 23.92s11.73-4.797 11.73-4.797S3.82 16.708 4.18 8.77s12.784-7.255 12.784-7.255">
+          </path>
+        </symbol>
+      </svg>
+      <!-- line-->
+      <svg xmlns="http://www.w3.org/2000/svg" width="25.675" height="22.236" viewbox="0 0 25.675 22.236">
+        <symbol id="line">
+          <path fill="none" stroke="#CF4981" stroke-width="3" stroke-miterlimit="10" d="M4.92 2.514L21.964 19.56">
+          </path>
+        </symbol>
+      </svg>
+      <svg width="25px" height="25px" class="layer1 p1">
+        <use xlink:href="#triangle" class="yellow"></use>
+      </svg>
+      <svg width="28px" height="28px" class="layer1 p2">
+        <use xlink:href="#semiCircle" class="yellow"></use>
+      </svg>
+      <svg width="25px" height="25px" class="layer2 p3">
+        <use width="25px" height="25px" xlink:href="#triangle" class="aqua"></use>
+      </svg>
+      <svg width="25px" height="25px" class="layer1 p4">
+        <use xlink:href="#triangle" class="pink"></use>
+      </svg>
+      <svg width="28px" height="28px" class="layer1 p5">
+        <use xlink:href="#semiCircle" class="aqua"></use>
+      </svg>
+      <svg width="36px" height="36px" class="layer2 p6">
+        <use xlink:href="#spring" class="pink"></use>
+      </svg>
+      <svg width="36px" height="36px" class="layer2 p7">
+        <use xlink:href="#spring" class="pink"></use>
+      </svg>
+      <svg width="22px" height="22px" class="layer2 p8">
+        <use xlink:href="#line" class="aqua"></use>
+      </svg>
+      <svg width="22px" height="22px" class="layer1 p9">
+        <use xlink:href="#line" class="aqua"></use>
+      </svg>
+      <svg width="22px" height="22px" class="layer2 p10">
+        <use xlink:href="#line" class="yellow"></use>
+      </svg>
+      <svg width="28px" height="28px" class="layer1 p11">
+        <use xlink:href="#semiCircle" class="aqua"></use>
+      </svg>
+    </div>
+
+   
+    <div class="flex -mt-10 relative">
+      <div class="max-w-screen-xl mx-auto w-full px-4">
+        <img src="/assets/images/Group 3.png" alt=""
+          class="absolute top-0 w-[300px] sm:w-[350px] md:w-[450px] right-1/3 left-1/2 -translate-y-3/2 md:-translate-y-1/4 -translate-x-1/2 md:-translate-x-1/3" />
+
+        <div class="relative ml-8 md:ml-12 mt-10 md:mt-16">
+          <div class="text-loading-mask">
+            <div class="text-loading-overlay"></div>
+            <h1 class="font-['Spartan'] tracking-wider text-3xl sm:text-4xl md:text-[64px] font-bold mr-12">
+              AFTAB ASIF
+            </h1>
+          </div>
+          <div>
+            <div style="transition-delay: 0.1s;" class="text-loading-overlay"></div>
+            <p class="font-[merriweather] italic my-4 md:my-8" id="main-hero-subtitle">
+              Frontend Developer
+            </p>
+          </div>
+
+
+
+          <div class="text-loading-mask">
+            <button
+             id="about-me" class="the-button bg-[#ed9950]  py-2 md:py-2 px-3 md:px-5 md:text-lg rounded relative font-extrabold bg-gradient-to-l from-[#af4747] to-[#e33434e6] hover:scale-110 ease-in-out duration-100 group">
+              <a href="#" class="the-button call-to-button no-smoothstate open-contact">
+                <span class="button-text">About Me</span>
+                <div class="button-mask"></div>
+                <div class="button-mask absolute"></div>
+                <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+                  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" width="44"
+                  height="44" viewBox="0 0 100 100"
+                  class="absolute top-1/2 -translate-y-1/2 -right-8 md:-right-7 group-hover:-right-9 ease-in-out duration-100">
+                  <g transform="translate(0,-952.36218)">
+                    <path style="
+                      text-indent: 0;
+                      text-transform: none;
+                      direction: ltr;
+                     
+                      color: #000000;
+                      enable-background: accumulate;
+                    " d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
+                      fill="#fff" fill-opacity="1" stroke="white" stroke-width="2" marker="none" visibility="visible"
+                      display="inline" overflow="visible" />
+                  </g>
+                </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <ul class="ml-auto -mt-auto space-y-6 text-[#b0b2c3] absolute right-4 md:right-8">
+        <li>
+          <a href="https://www.linkedin.com/in/aftab-asif-45850b251" target="_blank">
+            <svg class="w-7 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="currentColor"
+                d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <svg class="w-7 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="currentColor"
+                d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+            </svg></a>
+        </li>
+        <li>
+          <a href="">
+            <svg class="w-7 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="currentColor"
+                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+            </svg></a>
+        </li>
+        <li>
+          <a href="mailto:ppganacartoons@gmail.com" target="_blank"><svg class="w-7 hover:text-white"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="currentColor"
+                d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
+            </svg></a>
+        </li>
+        <li>
+          <a href="https://github.com/Aftab784" target="_blank">
+            <svg class="w-7 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+              <path fill="currentColor"
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+            </svg></a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="relative after:content-[''] after:absolute after:w-[2px] after:h-5 after:bg-[#444] after:left-1/2 after:-translate-x-1/2 after:top-[100px] self-center"
+      style="transition-delay: 0.15s;">
+      <div class="text-loading-mask">
+        <button id="latest-works-link"
+          class=" the-button call-to-button call-to-button no-smoothstate open-contact  bg-[#ed9950] py-2 px-5 rounded relative font-extrabold bg-gradient-to-l from-[#af4747] to-[#e33434e6] hover:scale-110 ease-in-out duration-100 group mb-20">
+          <a href="#latest-works"></a>
+          <span class="button-text">My Stints</span>
+          <div class="button-mask"></div>
+          <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" width="44"
+            height="44" viewBox="0 0 100 100"
+            class="absolute left-1/2 rotate-90 -translate-x-1/2 top-11 group-hover:top-12 ease-in-out duration-100">
+            <g transform="translate(0,-952.36218)">
+              <path style="
+                  text-indent: 0;
+                  text-transform: none;
+                  direction: ltr;
+                 
+                  
+                  color: #000000;
+                  enable-background: accumulate;
+                "
+                d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
+                fill="#fff" fill-opacity="1" stroke="white" stroke-width="2" marker="none" visibility="visible"
+                display="inline" overflow="visible" />
+            </g>
+          </svg>
+        </button>
+      </div>
+  </section>
+
+
+  <section id="latest-works" class="max-w-screen-xl w-full mx-auto px-4 relative pb-8 sm:pb-16 bg-[#1C1D25] text-white">
+    <h2
+      class="text-3xl sm:text-[40px] bg-[#1c1d25] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-[#d0cece]  sm:border-2 rounded-lg border-[#1788ae]">
+      Latest Works
+    </h2>
+    <div class="flex flex-col sm:flex-row gap-4 mt-8 sm:gap-[80px] items-center sm:mt-20 relative">
+      <div class="h-[1px]  left-1/4 right-1/2 bg-[#01DBCD] absolute top-1/2 hidden sm:block"></div>
+      <div
+        class="w-4 h-4 rounded-full border-[3px] border-[#01DBCD] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block">
+      </div>
+      <a href="https://aftab-asif-portfolio.netlify.app" target="_blank"
+        class="flex w-full relative justify-center sm:justify-start">
+        <div class="flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200">
+          <img class="max-w-[400px] w-full mr-auto relative z-10 drop-shadow-[0_0px_60px_rgba(409,330,530,0.5)]"
+            src="/assets/images/aftab-portfolio-mackbook.png" alt="" />
+          <span
+            class="flex group-hover:-top-14 ease-jump duration-200 bg-[#109C9C] sm:absolute left-1/2 sm:-translate-x-1/2 top-6 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2 ">Portfolio
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-external-link ">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <div class="w-full">
+        <h3 class="text-[#01DBCD] font-bold text-2xl md:text-4xl">
+          Aftab Asif
+        </h3>
+        <span class="text-[#01DBCD] text-base md:text-lg">(Portfolio Website)</span>
+        <p class="text-justify text-sm md:text-base mt-2">
+          Crafted a modern and responsive portfolio showcasing web development skills, projects, and expertise with a
+          clean, user-friendly design, built from scratch using HTML, CSS, and JavaScript.
+        </p>
+
+        <ul class="flex flex-wrap gap-2 mt-2">
+
+
+
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #swiper.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #html
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #github
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #css
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #javascript
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #figma
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+      <div class="order-2 sm:order-1 w-full">
+        <h3 class="text-[#f9584c] font-bold text-2xl md:text-4xl">
+          David Chang
+        </h3>
+        <span class="text-[#f9584c] text-base md:text-lg">(EdTech Startup)</span>
+        <p class="text-justify text-sm md:text-base mt-2">
+          Explore David Chang's creative portfolio showcasing a range of innovative projects. Discover the artistry and
+          technical expertise behind each unique creation.
+        </p>
+
+        <ul class="flex flex-wrap gap-2 mt-2">
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #react.js
+          </li>
+
+
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #swiper.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoDB
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoose
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #css
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #javascript
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #figma
+          </li>
+        </ul>
+      </div>
+      <div class="h-[1px] left-1/2 right-1/4 bg-[#E30023] absolute top-1/2 hidden sm:block"></div>
+      <div
+        class="w-4 h-4 rounded-full border-[3px] border-[#E30023] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block">
+      </div>
+      <a href="https://david-chang-project.netlify.app" target="_blank"
+        class="order-1 sm:order-2 flex w-full relative justify-center sm:justify-start">
+        <div class="flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200 sm:ml-auto">
+          <img class="max-w-[400px] w-full relative z-10 drop-shadow-[0_0px_60px_rgba(409,330,530,0.5)]"
+            src="/assets/images/david-chang-mackbook.png" alt="" />
+          <span
+            class="flex group-hover:-top-14 ease-jump duration-200 text-black bg-[#f9584c] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2">David
+            Chang
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-external-link">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+      <div class="h-[1px] left-1/4 right-1/2 bg-[#337b93] absolute top-1/2 hidden sm:block"></div>
+      <div
+        class="w-4 h-4 rounded-full border-[3px] border-[#337b93] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block">
+      </div>
+      <a href="https://g-wagon-project.netlify.app" target="_blank"
+        class="flex w-full relative justify-center sm:justify-start">
+        <div class="flex flex-col items-center relative group hover:scale-105 ease-in-out sm:mr-auto duration-200">
+          <img class="max-w-[400px] w-full mr-auto relative z-10 drop-shadow-[0_0px_60px_rgba(409,330,530,0.5)]"
+            src="/assets/images/gwagon-mac.png" alt="" />
+          <span
+            class="flex group-hover:-top-14 ease-jump duration-200 bg-[#0F4D61] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2">Gwagon
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-external-link">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <div class="w-full">
+        <h3 class="text-[#4c92a9] font-bold text-2xl md:text-4xl">
+          G Wagon
+        </h3>
+        <span class="text-[#4c92a9] text-base md:text-lg">(Car Showcase Website)</span>
+        <p class="text-justify text-sm md:text-base mt-2">
+          Built a sleek and responsive landing page for the Mercedes G-Wagon, showcasing its luxury design and features,
+          with a focus on high-quality visuals and smooth user experience.
+        </p>
+
+        <ul class="flex flex-wrap gap-2 mt-2">
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #react.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #express.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #node.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #swiper.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoDB
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoose
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #css
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #javascript
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #figma
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+      <div class="order-2 sm:order-1 w-full">
+        <h3 class="text-[#27cc34] font-bold text-2xl md:text-4xl">
+          Hamburger
+        </h3>
+        <span class="text-[#27cc34] text-base md:text-lg">(Foodie Hamburger)</span>
+        <p class="text-justify text-sm md:text-base mt-2">
+          Developed a fun and interactive hamburger themed website, focusing on appetizing visuals and smooth
+          navigation, designed to engage food enthusiasts.
+        </p>
+
+        <ul class="flex flex-wrap gap-2 mt-2">
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #react.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #express.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #node.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #swiper.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoDB
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoose
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #css
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #javascript
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #figma
+          </li>
+        </ul>
+      </div>
+      <div class="h-[1px] left-1/2 right-1/4 bg-[#27cc34] absolute top-1/2 hidden sm:block"></div>
+      <div
+        class="w-4 h-4 rounded-full border-[3px] border-[#27cc34] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block">
+      </div>
+      <a href="https://foodie-hamburger-website.netlify.app" target="_blank"
+        class="order-1 sm:order-2 flex w-full relative justify-center sm:justify-start">
+        <div class="flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200 sm:ml-auto">
+          <img class="max-w-[400px] w-full relative z-10 drop-shadow-[0_0px_60px_rgba(409,330,530,0.5)]"
+            src="/assets/images/foodie-mackbook.png" alt="" />
+          <span
+            class="flex group-hover:-top-14 ease-jump duration-200 bg-[#27cc34] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2">Hamburger
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-external-link">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+      <div class="h-[1px] left-1/4 right-1/2 bg-[#fb8b01] absolute top-1/2 hidden sm:block"></div>
+      <div
+        class="w-4 h-4 rounded-full border-[3px] border-[#fb8b01] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block">
+      </div>
+      <a href="https://diwali-project-by-aftab.netlify.app" target="_blank"
+        class="flex w-full relative justify-center sm:justify-start">
+        <div class="flex flex-col items-center relative group hover:scale-105 ease-in-out sm:mr-auto duration-200">
+          <img class="max-w-[400px] w-full mr-auto relative z-10 drop-shadow-[0_0px_60px_rgba(409,330,530,0.5)]"
+            src="/assets/images/diwali-project-mackbook.png" alt="" />
+          <span
+            class="flex group-hover:-top-14 ease-jump duration-200 bg-[#fb8b01] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2">Diwali
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-external-link">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <div class="w-full">
+        <h3 class="text-[#fb8b01] font-bold text-2xl md:text-4xl">
+          Diwali Project
+        </h3>
+        <span class="text-[#fb8b01] text-base md:text-lg">(Showcasing Website)</span>
+        <p class="text-justify text-sm md:text-base mt-2">
+          Created a vibrant Diwali-themed website with interactive features, highlighting traditional elements and
+          festive spirit, entirely built from scratch.
+        </p>
+
+        <ul class="flex flex-wrap gap-2 mt-2">
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #react.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #express.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #node.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #swiper.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoDB
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoose
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #css
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #javascript
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #figma
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+      <div class="order-2 sm:order-1 w-full">
+        <h3 class="text-[#47afa1] font-bold text-2xl md:text-4xl">
+          Piano
+        </h3>
+        <span class="text-[#47afa1] text-base md:text-lg">(Virtual Piano)</span>
+        <p class="text-justify text-sm md:text-base mt-2">
+          Created an interactive virtual piano website, allowing users to play and explore musical notes online, with a
+          clean and intuitive interface.
+        </p>
+
+        <ul class="flex flex-wrap gap-2 mt-2">
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #react.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #express.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #node.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #swiper.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoDB
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoose
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #css
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #javascript
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #figma
+          </li>
+        </ul>
+      </div>
+      <div class="h-[1px] left-1/2 right-1/4 bg-[#1788ae] absolute top-1/2 hidden sm:block"></div>
+      <div
+        class="w-4 h-4 rounded-full border-[3px] border-[#47afa1] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block">
+      </div>
+      <a href="https://virtualpianobyaftab.netlify.app" target="_blank"
+        class="order-1 sm:order-2 flex w-full relative justify-center sm:justify-start">
+        <div class="flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200 sm:ml-auto">
+          <img class="max-w-[400px] w-full relative z-10 drop-shadow-[0_0px_60px_rgba(409,330,530,0.5)] "
+            src="/assets/images/piano-mackbook.png" alt="" />
+          <span
+            class="flex group-hover:-top-14 ease-jump duration-200 bg-[#47afa1] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2">Piano
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-external-link">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </div>
+      </a>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+      <div class="h-[1px] left-1/4 right-1/2 bg-[#FB7C14] absolute top-1/2 hidden sm:block"></div>
+      <div
+        class="w-4 h-4 rounded-full border-[3px] border-[#FB7C14] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block">
+      </div>
+      <a href="https://calculatorbyaftab.netlify.app" target="_blank"
+        class="flex w-full relative justify-center sm:justify-start">
+        <div class="flex flex-col items-center relative group hover:scale-105 ease-in-out sm:mr-auto duration-200">
+          <img class="max-w-[450px] w-full mr-auto  relative z-10 drop-shadow-[0_0px_60px_rgba(409,330,530,0.5)]"
+            src="/assets/images/calculator-ipad.png" alt="" />
+          <span
+            class="flex group-hover:-top-14 ease-jump duration-200 bg-[#FB7C14] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2">Calculator
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-external-link">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <div class="w-full">
+        <h3 class="text-[#FB7C14] font-bold text-2xl md:text-4xl">
+          Calculator
+        </h3>
+        <span class="text-[#FB7C14] text-base md:text-lg">(Calulating app)</span>
+        <p class="text-justify text-sm md:text-base mt-2">
+          This calculator offers a sleek and efficient online calculator for all your computational needs. Simple, fast,
+          and designed for precision at your fingertips.
+        </p>
+
+        <ul class="flex flex-wrap gap-2 mt-2">
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #react.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #express.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #node.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #swiper.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoDB
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoose
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #css
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #javascript
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #figma
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative">
+      <div class="order-2 sm:order-1 w-full">
+        <h3 class="text-[#BB6CD0] font-bold text-2xl md:text-4xl">
+          Scrambler
+        </h3>
+        <span class="text-[#BB6CD0] text-base md:text-lg">(Word Scramble game)</span>
+        <p class="text-justify text-sm md:text-base mt-2">
+          Developed a fun and interactive hamburger themed website, focusing on appetizing visuals and smooth
+          navigation, designed to engage food enthusiasts.
+        </p>
+
+        <ul class="flex flex-wrap gap-2 mt-2">
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #react.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #express.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #node.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #swiper.js
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoDB
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #mongoose
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #css
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #javascript
+          </li>
+          <li class="border rounded-[50px] border-[#999] px-[10px] py-[5px] text-sm md:text-base">
+            #figma
+          </li>
+        </ul>
+      </div>
+      <div class="h-[1px] left-1/2 right-1/4 bg-[#BB6CD0] absolute top-1/2 hidden sm:block"></div>
+      <div
+        class="w-4 h-4 rounded-full border-[3px] border-[#BB6CD0] absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block">
+      </div>
+      <a href="https://wordscramblebyaftab.netlify.app" target="_blank"
+        class="order-1 sm:order-2 flex w-full relative justify-center sm:justify-start">
+        <div class="flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200 sm:ml-auto">
+          <img class="max-w-[450px] w-full relative z-10 drop-shadow-[0_0px_60px_rgba(409,330,530,0.5)]"
+            src="/assets/images/scrambleword-ipad.png" alt="" />
+          <span
+            class="flex group-hover:-top-14 ease-jump duration-200 bg-[#BB6CD0] sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2">Scrambler
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-external-link">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <div class="w-[2px] hidden sm:block bg-[#1788ae] absolute top-0 bottom-0 left-1/2 -translate-x-1/2"></div>
+  </section>
+
+  <section class="max-w-screen-xl mx-auto pb-12 text-white overflow-hidden">
+    <h2
+      class="text-3xl sm:text-[40px] bg-[#1C1D25] sm:w-max relative z-10 font-bold px-4 py-3 mx-auto text-center text-[#d0cece] sm:border-2 border-[#1788ae] rounded-md">
+      What my clients are saying?
+    </h2>
+    <div class="swiper mySwiper !py-14">
+      <div class="swiper-wrapper items-center">
+        <div class="swiper-slide px-4">
+          <div
+            class="flex flex-col md:flex-row w-full md:max-w-[800px] items-center rounded-lg p-9 shadow-[0_0px_50px_rgba(59,130,246,0.6)] cursor-grab">
+            <img
+              class="shrink-0 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full drop-shadow-[0_0px_80px_rgba(59,130,246,1)]"
+              src="/assets/images/download.jfif" alt="testimonial 3" />
+            <div class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative">
+              <p class="text-sm md:text-base mb-2">
+                "Working with Aftab was a game-changer for our online presence. He took the time to understand our brand
+                and created a website that truly reflects our identity. His problem-solving skills and creative approach
+                made the entire process smooth and efficient. We’ve seen a significant increase in user engagement since
+                the launch, thanks to his innovative solutions."
+              </p>
+              <h2 class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl">
+                James Bolt Andresson
+              </h2>
+              <h5 class="text-right text-[#459bd5] text-base md:text-lg">
+                CEO, GreenTech Solutions
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide px-4">
+          <div
+            class="flex flex-col md:flex-row max-w-[800px] items-center rounded-lg p-9 shadow-[0_0px_50px_rgba(59,130,246,0.6)] cursor-grab">
+            <img
+              class="shrink-0 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full drop-shadow-[0_0px_80px_rgba(59,130,246,1)]"
+              src="/assets/images/lydia graham.jfif" alt="testimonial 3" />
+            <div class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative">
+              <p class="text-sm md:text-base mb-2">
+                "Aftab completely transformed our website with his expertise. His attention to detail and ability to
+                bring our ideas to life were impressive. We're thrilled with the results!"
+              </p>
+              <h2 class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl">
+                — Sarah M.
+              </h2>
+              <h5 class="text-right text-[#459bd5] text-base md:text-lg">
+                Senior Developer
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide px-4">
+          <div
+            class="flex flex-col md:flex-row max-w-[800px] items-center rounded-lg p-9 shadow-[0_0px_50px_rgba(59,130,246,0.6)] cursor-grab">
+            <img
+              class="shrink-0 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full drop-shadow-[0_0px_80px_rgba(59,130,246,1)]"
+              src="/assets/images/RRR.png" alt="testimonial 3" />
+            <div class="testimonial-text ml-6 text-left pt-6 md:pt-16 relative ">
+              <p class="text-sm md:text-base mb-2 ">
+                “I worked with Aftab to make my website. I am speechless by
+                looking at his work ethic and dedication. Working with him was
+                the best decision I made.”
+              </p>
+              <h2 class="text-right text-[#459bd5] font-bold text-2xl md:text-4xl">
+                Ali Rehman
+              </h2>
+              <h5 class="text-right text-[#459bd5] text-base md:text-lg">
+                Freelancer
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section class="max-w-screen-xl mx-auto pb-12 text-white p-6">
+    <h2
+      class="text-3xl sm:text-[40px] bg-[#1C1D25] sm:w-max relative z-10 font-bold px-4 py-3 mx-auto text-center text-[#d0cece] sm:border-2 border-[#1788ae] rounded-md">
+      Link with Me
+    </h2>
+    <div class="flex flex-col md:flex-row items-center mt-10">
+      <div class="w-full">
+        <img src="/assets/images/contact-me.svg" alt="phone" />
+      </div>
+      <form class="w-full" name="contactUS" netlify>
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+        <div class="relative mb-4">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
+            </svg>
+          </div>
+          <input type="text" id="name" name="name"
+            class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+            placeholder="Enter your name" />
+        </div>
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
+        <div class="relative mb-4">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 16">
+              <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+              <path
+                d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+            </svg>
+          </div>
+          <input type="text" id="email" name="email"
+            class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+            placeholder="name@gmail.com" />
+        </div>
+        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message</label>
+        <div class="relative mb-4">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"></div>
+          <textarea id="message" name="message" placeholder="Enter your message" rows="8"
+            class="bg-gray-50 border-2 outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#1788ae] focus:border-[#1788ae] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"></textarea>
+        </div>
+        <button type="submit"
+          class="w-full text-white bg-[#1788ae] hover:bg-[#1280a4] focus:ring-4 focus:ring-[#4489a0] font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">
+          Send
+        </button>
+      </form>
+    </div>
+  </section>
+
+ <!-- <div class="parent-popup">
+  <div class="popup" id="aboutMePopup">
+    <div class="popup-content"> <span class="close" onclick="closePopup()">&times;</span>
+      <h2>ABOUT ME</h2>
+      <p>I help business owners and busy web developers to design & develop creative websites that fit their vision and
+        attract visitors. Technologies and tools that I use to create such awesome websites:</p>
+      <div class="technologies"> <ul class="about-me-detail">
+        <li>#javascript</li>
+        <li>#react.js</li>
+        <li>#redux</li>
+        <li>#node.js</li>
+        <li>#express.js</li>
+        <li>#mongoDB</li>
+        <li>#mongoose</li>
+        <li>#cloudinary</li>
+        <li>#ejs</li>
+        <li>#html</li>
+        <li>#css</li>
+        <li>#sass</li>
+        <li>#bootstrap</li>
+        <li>#tailwind</li>
+        <li>#git</li>
+        <li>#github</li>
+        <li>#aws</li>
+        <li>#terminal</li>
+        <li>#adobeXD</li>
+        <li>#figma</li>
+      </ul>
+      
+      <div class="illustration"> 
+        <img class="coder-img" src="assets/images/coder-aboutme.svg" alt="coder image" draggable="false" />
+       </div>
+    </div>
+  </div>
+ </div> -->
+
+  <footer class="flex flex-col items-center pb-10">
+    <p class="text-xs text-gray-300">Aftab Asif © 2024</p>
+    <div class="black-logo my-4">
+      <img src="/assets/images/Vector 2.png" alt="">
+    </div>
+    <ul class="mx-auto flex items-center justify-center gap-6 text-[#b0b2c3]">
+      <li>
+        <a href="https://www.linkedin.com/in/aftab-asif-45850b251" target="_blank">
+          <svg class="w-5 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path fill="currentColor"
+              d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z">
+            </path>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/anuragsinghbam" target="_blank">
+          <svg class="w-5 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="currentColor"
+              d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z">
+            </path>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/procodrr/">
+          <svg class="w-5 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path fill="currentColor"
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+            </path>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:ppganacartoons@gmail.com" target="_blank">
+          <svg class="w-5 hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="currentColor"
+              d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z">
+            </path>
+          </svg>
+        </a>
+      </li>
+
+    </ul>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+
+  </script>
+
+  <script type="application/javascript" src="particles.js"></script>
+  <script type="application/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <script src="particles.js"></script>
+
+</body>
+
+</html>
